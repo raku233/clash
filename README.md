@@ -12,6 +12,8 @@ OpenClash 使用的 subconverter 模板是 `clash.ini`。大站点名单写成�
 
 Shadowrocket 请使用 `shadowrocket.ini`，不要使用 `clash.ini`：Shadowrocket 不支持 `GEOSITE`，此模板改用远程域名规则集。
 
+为保持配置小巧，已移除两份 MetaCubeX 大名单：`cn`（约 11 万条）和 `geolocation-!cn`（约 2.7 万条），保留局域网与各专项域名规则。未列入名单的域名经 DNS 解析后，CN IP 走「国内 / 直连」，其余走「国外」（FINAL）。取舍是分流依赖解析 IP，个别应用若分流不准，后续可添加单独规则修正。
+
 订阅转换查询示例：
 
 ```text
