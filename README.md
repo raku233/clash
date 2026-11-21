@@ -14,10 +14,10 @@ Shadowrocket 请使用 `shadowrocket.ini`，不要使用 `clash.ini`：Shadowroc
 
 为保持配置小巧，已移除两份 MetaCubeX 大名单：`cn`（约 11 万条）和 `geolocation-!cn`（约 2.7 万条），保留局域网与各专项域名规则。未列入名单的域名经 DNS 解析后，CN IP 走「国内 / 直连」，其余走「国外」（FINAL）。取舍是分流依赖解析 IP，个别应用若分流不准，后续可添加单独规则修正。
 
-订阅转换查询示例：
+通过局域网 subconverter 使用 `target=clash`；`target=surge` 会丢弃 VLESS / AnyTLS 节点，不适用于本订阅。订阅转换查询示例：
 
 ```text
-target=surge&ver=4&url=<subscription>&config=https://raw.githubusercontent.com/raku233/clash/main/shadowrocket.ini
+target=clash&url=<机场订阅>&config=https://raw.githubusercontent.com/raku233/clash/main/shadowrocket.ini&emoji=false&udp=true
 ```
 
-远程 `RULE-SET` 转换需要在 subconverter 的 pref 中将 `managed_config_prefix` 设为手机可访问的服务端基础 URL（通常不能是 `127.0.0.1`）。本仓库不包含服务端 pref。
+`target=clash` 会将规则集内联到生成的 YAML，无需配置 `managed_config_prefix`。
